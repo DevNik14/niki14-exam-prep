@@ -27,6 +27,14 @@ jobs:
       run: echo "niki14"
     - name: start the app
       run: npm run start &
+
+  ui-tests:
+
+    needs: build-and-test
+    
+    runs-on: ubuntu-latest
+
+    steps:
     - name: install playwright browsers
       run: npx playwright install
     - name: start ui tests
