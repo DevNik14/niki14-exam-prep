@@ -30,12 +30,22 @@ jobs:
 
   ui-tests:
 
-    needs: build-and-test
-    
     runs-on: ubuntu-latest
+    needs: build-and-test
 
     steps:
+    - name: checkout the repo
+      uses: actions/checkout@v4
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: install dependencies
+      run: npm install
     - name: install playwright browsers
       run: npx playwright install
+    - name: start the app
+      run: npm run start &
     - name: start ui tests
       run: npm run test:ui
