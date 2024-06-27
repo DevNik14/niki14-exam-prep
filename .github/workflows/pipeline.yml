@@ -25,14 +25,6 @@ jobs:
       run: npm run test:unit
     - name: display softuni username
       run: echo "niki14"
-  
-  ui-tests:
-
-    needs: build-and-test
-
-    runs-on: ubuntu-latest
-
-    steps:
     - name: install playwright browsers
       run: npx playwright install
     - name: start ui tests
