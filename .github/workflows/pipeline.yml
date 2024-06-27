@@ -30,7 +30,7 @@ jobs:
 
     needs: build-and-test
 
-    runs-on: ubuubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: install playwright browsers
